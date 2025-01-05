@@ -28,8 +28,11 @@ def howling(my_dog, volume=100):
 
 my_dog = Pidog()
 button_pin = Pin('SW', Pin.IN, Pin.PULL_UP)
-outbound_steps = 3
-return_steps = 3
+outbound_steps1 = 21
+outbound_steps2 = 22
+return_steps = 38
+#outbound_steps = 2
+#return_steps = 2
 
 try:
     # walk
@@ -44,9 +47,13 @@ try:
             time.sleep(2)
             break
         time.sleep(0.1)
-    my_dog.do_action("forward", step_count=outbound_steps, speed=98)
+    my_dog.do_action("forward", step_count=15, speed=98)
+    my_dog.do_action("turn_right", step_count=1, speed=98)
+    my_dog.do_action("forward", step_count=10, speed=98)
+    my_dog.do_action("turn_right", step_count=1, speed=98)
+    my_dog.do_action("forward", step_count=15, speed=98)
     my_dog.wait_all_done()
-    my_dog.do_action("wag_tail", step_count=return_steps, speed=95)
+    my_dog.do_action("wag_tail", step_count=15, speed=95)
     my_dog.wait_all_done()
     my_dog.do_action("backward", step_count=return_steps, speed=98)
     my_dog.wait_all_done()
